@@ -30,10 +30,10 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
     }
     
     var ListNodes []ListNode
-    var roundUp,sum int
+    var carry,sum int
     for shortList != nil{
-        sum = shortList.Val+longList.Val + roundUp
-        roundUp = sum/10
+        sum = shortList.Val+longList.Val + carry
+        carry = sum/10
         newList := ListNode{Val:sum%10}
         ListNodes = append(ListNodes, newList)
         
@@ -42,15 +42,15 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
     }
     
     for longList != nil{
-        sum = longList.Val + roundUp
-        roundUp = sum/10
+        sum = longList.Val + carry
+        carry = sum/10
         newList := ListNode{Val:sum%10}
         ListNodes = append(ListNodes, newList)
         
         longList = longList.Next
     }
-    if roundUp > 0{
-        newList := ListNode{Val:roundUp}
+    if carry > 0{
+        newList := ListNode{Val:carry}
         ListNodes = append(ListNodes, newList)
     }
     
