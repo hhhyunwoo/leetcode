@@ -17,17 +17,14 @@ class Solution:
             for i in range(l):
                 pop = queue.pop(0)
                 answer.append(pop.val)
-                if idx%2 == 0:
-                    if pop.left is not None:
-                        queue.append(pop.left)
-                    if pop.right is not None:
-                        queue.append(pop.right)
-                else:
-                    if pop.right is not None:
-                        queue.append(pop.right)
-                    if pop.left is not None:
-                        queue.append(pop.left)
-            answers.append(answer)
+                if pop.left is not None:
+                    queue.append(pop.left)
+                if pop.right is not None:
+                    queue.append(pop.right)
+            if idx%2 == 0:
+                answers.append(list(reversed(answer)))
+            else:
+                answers.append(answer)
             idx += 1
         print(answers)
         return answers
