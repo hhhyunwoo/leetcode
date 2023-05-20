@@ -23,3 +23,35 @@ class Solution:
                 break
             answers.append(answer)
         return answers
+
+
+
+
+#------------------
+# This is another solution 
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root is None:
+            return root
+        queue = [root]
+        answers = []
+        while len(queue) > 0:
+            answer = []
+            l = len(queue)
+            for i in range(l):
+                pop = queue.pop(0)
+                answer.append(pop.val)
+                if pop.left is not None:
+                    queue.append(pop.left)
+                if pop.right is not None:
+                    queue.append(pop.right)
+            answers.append(answer)
+        print(answers)
+        return answers
