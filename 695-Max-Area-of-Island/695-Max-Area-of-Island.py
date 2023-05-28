@@ -24,6 +24,7 @@ class Solution:
         for i in range(n):
             for j in range(m):
                 if grid[i][j] == 1:
+                    answer += 1
                     count = 0
                     dfsAns = dfs(i,j,n,m,grid)
                     if answer < dfsAns:
