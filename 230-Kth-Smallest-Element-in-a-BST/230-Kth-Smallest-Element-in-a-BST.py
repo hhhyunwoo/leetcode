@@ -8,9 +8,9 @@ class Solution:
         self.sortedArr.append(node.val)
         self.inOrder(node.right)
 
-    def tmp(self, nums: List[int], k: int) -> int:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         self.sortedArr = []
-        self.inOrder(Tree)
+        self.inOrder(root)
         return self.sortedArr[k-1]
 
 

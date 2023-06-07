@@ -4,13 +4,10 @@ class Solution:
         for i in range(len(s)):
             sDict[s[i]] += 1
 
-
         sSortedArr = [k for k,v in sorted(sDict.items(), key=lambda item: item[1], reverse=True)]
-
 
         answer = []
         for c in sSortedArr:
-            print(c) 
             for _ in range(sDict[c]):
                 answer.append(c)
         return answer
