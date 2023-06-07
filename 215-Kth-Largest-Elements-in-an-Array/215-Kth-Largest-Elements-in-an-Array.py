@@ -15,7 +15,7 @@ class Solution:
         self.sortedArr.append(node.val)
         self.inOrder(node.right)
 
-    def tmp(self, nums: List[int], k: int) -> int:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
         self.sortedArr = []
         # Making Binary Search Tree
         tree = TreeNode(nums[0])
@@ -40,4 +40,24 @@ class Solution:
         return self.sortedArr[-k]
 
 sol = Solution()
-print(sol.tmp([3,2,1,5,6,4], 2))
+print(sol.findKthLargest([3,2,1,5,6,4], 2))
+
+
+################################
+# Heap Solution
+
+from queue import PriorityQueue
+
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        q = PriorityQueue()
+        for num in nums:
+            q.put(-num)
+        
+        for _ in range(k-1):
+            q.get()
+        return -1 * q.get()
+        
+
+sol = Solution()
+print(sol.findKthLargest([3,2,1,5,6,4], 2))
